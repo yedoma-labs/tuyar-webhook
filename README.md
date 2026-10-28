@@ -10,8 +10,6 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-6-blue.svg)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> **туяр** (*tuyar*) — Yakutian (Sakha) for "(noch zu bestätigen)"
-
 Zero-dependency webhook signature verification for **Standard Webhooks**, **Stripe**, **GitHub** and generic **HMAC-SHA256** schemes.
 Built on `node:crypto` only, with raw-body safety, constant-time comparison, timestamp tolerance against replay, and secret rotation.
 
