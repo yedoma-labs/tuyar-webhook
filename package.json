@@ -1,6 +1,6 @@
 {
 	"name": "@yedoma-labs/tuyar-webhook",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Zero-dependency, raw-body-safe webhook signature verification for Standard Webhooks, Stripe, GitHub and generic HMAC schemes",
 	"type": "module",
 	"main": "./dist/index.cjs",
