@@ -51,6 +51,10 @@ describe("hmac-sha256", () => {
 		expect(verify({ encoding: "base64", headers })).toEqual({ ok: true });
 	});
 
+	it.each(["utf8", "BASE64", "", null])("throws a TypeError for encoding %j", (value) => {
+		expect(() => verify({ encoding: value as never })).toThrow(TypeError);
+	});
+
 	it("rejects a base64 signature when encoding is hex", () => {
 		const headers = { "x-signature": hmacBase64(HMAC_SECRET, BODY) };
 		expectCode(() => verify({ headers }), "INVALID_SIGNATURE");

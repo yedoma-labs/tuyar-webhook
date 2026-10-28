@@ -1,13 +1,31 @@
 # @yedoma-labs/tuyar-webhook
 
+<picture>
+  <source media="(max-width: 640px)" srcset="https://raw.githubusercontent.com/yedoma-labs/assets/main/resized/banner-resized-mobile.png">
+  <img src="https://raw.githubusercontent.com/yedoma-labs/assets/main/resized/banner-resized.png" alt="Project Header">
+</picture>
+
+[![CI](https://github.com/yedoma-labs/tuyar-webhook/actions/workflows/ci.yml/badge.svg)](https://github.com/yedoma-labs/tuyar-webhook/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/@yedoma-labs/tuyar-webhook.svg)](https://www.npmjs.com/package/@yedoma-labs/tuyar-webhook)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6-blue.svg)](https://www.typescriptlang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+> **туяр** (*tuyar*) — Yakutian (Sakha) for "(noch zu bestätigen)"
+
 Zero-dependency webhook signature verification for **Standard Webhooks**, **Stripe**, **GitHub** and generic **HMAC-SHA256** schemes.
 Built on `node:crypto` only, with raw-body safety, constant-time comparison, timestamp tolerance against replay, and secret rotation.
+
+---
+
+## Installation
 
 ```sh
 pnpm add @yedoma-labs/tuyar-webhook
 ```
 
 Requires Node.js 20 or newer.
+
+---
 
 ## The raw body trap
 
@@ -166,7 +184,7 @@ Verification failures throw `WebhookSignatureError`, which has a typed `code`:
 | `MALFORMED_SECRET`           | The secret does not match the scheme's format                        | 500 (configuration)   |
 | `UNSUPPORTED_SCHEME`         | The scheme name is unknown                                           | 500 (programming)     |
 
-Invalid options (for example a negative `toleranceSeconds` or a missing `signatureHeader`) throw a plain `TypeError`. Error messages never include the secret or the signature.
+Invalid options (for example a negative `toleranceSeconds`, an `encoding` other than `"hex"` or `"base64"`, or a missing `signatureHeader`) throw a plain `TypeError`. Error messages never include the secret or the signature.
 
 ## Replay protection and rotation
 

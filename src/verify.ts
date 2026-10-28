@@ -50,6 +50,11 @@ export function verifyWebhook(options: VerifyWebhookOptions): VerifyResult {
 		throw new TypeError("toleranceSeconds must be a non-negative number");
 	}
 
+	const encodingOption: unknown = options.encoding;
+	if (encodingOption !== undefined && encodingOption !== "hex" && encodingOption !== "base64") {
+		throw new TypeError('encoding must be "hex" or "base64"');
+	}
+
 	const body: unknown = options.body;
 	if (typeof body !== "string" && !(body instanceof Uint8Array)) {
 		throw new TypeError("body must be the raw request body as a string or Uint8Array");
